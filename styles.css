@@ -173,6 +173,15 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
   color: var(--navy);
   letter-spacing: .01em;
 }
+.brand-sub {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: .82rem;
+  line-height: 1;
+  color: var(--orange);
+  letter-spacing: .01em;
+  margin: 1px 0 2px;
+}
 .brand-tag { font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
 .primary-nav { display: flex; gap: 26px; }
