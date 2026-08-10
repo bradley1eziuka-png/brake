@@ -1,5 +1,5 @@
 /* ============================================================
-   Brake Painting — interactions
+   Brake Painting interactions
    Vanilla JS: sticky header, mobile nav, scroll reveal,
    active-nav highlight, gallery lightbox, form validation
    ============================================================ */
