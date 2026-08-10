@@ -650,6 +650,8 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
 .footer-col a:hover { color: var(--orange); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 20px 0; }
 .footer-bottom .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .84rem; }
+.site-credit { color: var(--on-dark-muted); font-weight: 700; transition: color .18s var(--ease); }
+.site-credit:hover { color: var(--orange); }
 
 /* ============================================================
    MOBILE STICKY BAR
