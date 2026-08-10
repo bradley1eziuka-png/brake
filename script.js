@@ -131,6 +131,7 @@
      ============================================================ */
   var form = document.getElementById('estimateForm');
   var success = document.getElementById('formSuccess');
+  var errorBox = document.getElementById('formError');
 
   var validators = {
     name: function (v) { return v.trim().length >= 2 || 'Please enter your name.'; },
@@ -139,8 +140,8 @@
       return (digits.length >= 10 && digits.length <= 15) || 'Enter a valid phone number.';
     },
     email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Enter a valid email address.'; },
-    project: function (v) { return v !== '' || 'Choose a project type.'; },
-    zip: function (v) { return v.trim().length >= 3 || 'Enter your address or ZIP.'; }
+    project_type: function (v) { return v !== '' || 'Choose a project type.'; },
+    address: function (v) { return v.trim().length >= 3 || 'Enter your address or ZIP.'; }
   };
 
   function validateField(field) {
@@ -181,10 +182,32 @@
     });
     if (!ok) { if (firstBad) firstBad.focus(); return; }
 
-    /* No backend wired up — confirm receipt to the visitor.
-       Swap this for a real endpoint (Formspree, Vercel function, etc.) on deploy. */
-    form.querySelector('button[type="submit"]').disabled = true;
-    success.hidden = false;
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    /* Submit to Formspree via fetch so we can show an inline confirmation
+       instead of redirecting to Formspree's own thank-you page. */
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (errorBox) errorBox.hidden = true;
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.hidden = true;
+        success.hidden = false;
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        return response.json().then(function () { throw new Error('submit_failed'); });
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+      if (errorBox) {
+        errorBox.hidden = false;
+        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   });
 })();

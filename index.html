@@ -391,51 +391,60 @@
           </ul>
         </div>
 
-        <form class="estimate-form reveal" id="estimateForm" novalidate>
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required />
-            <span class="error" data-for="name"></span>
-          </div>
-          <div class="field-row">
+        <div class="contact-form-wrap reveal">
+          <form class="estimate-form" id="estimateForm" action="https://formspree.io/f/mljrjvad" method="POST" novalidate>
             <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required />
-              <span class="error" data-for="phone"></span>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+              <span class="error" data-for="name"></span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+                <span class="error" data-for="phone"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required />
+                <span class="error" data-for="email"></span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="project">Project Type</label>
+                <select id="project" name="project_type" required>
+                  <option value="" disabled selected>Choose one…</option>
+                  <option>Exterior Painting</option>
+                  <option>Interior Painting</option>
+                  <option>Wood Rot / Trim Repair</option>
+                  <option>Commercial</option>
+                  <option>Other</option>
+                </select>
+                <span class="error" data-for="project_type"></span>
+              </div>
+              <div class="field">
+                <label for="zip">Address / ZIP</label>
+                <input type="text" id="zip" name="address" autocomplete="postal-code" required />
+                <span class="error" data-for="address"></span>
+              </div>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
-              <span class="error" data-for="email"></span>
+              <label for="message">Message <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="4"></textarea>
             </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Request My Estimate</button>
+            <p class="form-note">We'll contact you within one business day.</p>
+            <p class="form-error" id="formError" role="alert" hidden>We couldn't send your request just now. Please call <a href="tel:+17346242930">734-624-2930</a> or email <a href="mailto:brakepainting@gmail.com">brakepainting@gmail.com</a> and we'll take care of it.</p>
+          </form>
+          <div class="form-success-card" id="formSuccess" role="status" hidden>
+            <span class="form-success-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <h3>Request received</h3>
+            <p>Thanks! We'll contact you within one business day. For anything urgent, call <a href="tel:+17346242930">734-624-2930</a>.</p>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="project">Project Type</label>
-              <select id="project" name="project" required>
-                <option value="" disabled selected>Choose one…</option>
-                <option>Exterior Painting</option>
-                <option>Interior Painting</option>
-                <option>Wood Rot / Trim Repair</option>
-                <option>Commercial</option>
-                <option>Other</option>
-              </select>
-              <span class="error" data-for="project"></span>
-            </div>
-            <div class="field">
-              <label for="zip">Address / ZIP</label>
-              <input type="text" id="zip" name="zip" autocomplete="postal-code" required />
-              <span class="error" data-for="zip"></span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="message">Message <span class="optional">(optional)</span></label>
-            <textarea id="message" name="message" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Request My Estimate</button>
-          <p class="form-note">We'll contact you within one business day.</p>
-          <p class="form-success" id="formSuccess" role="status" hidden>Thanks — your request is in. We'll reach out within one business day. For anything urgent, call <a href="tel:+17346242930">734-624-2930</a>.</p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
