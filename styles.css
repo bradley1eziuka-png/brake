@@ -878,3 +878,30 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
   .related { grid-template-columns: 1fr; text-align: left; gap: 16px; }
   .related .btn { justify-self: start; }
 }
+
+/* ============================================================
+   REVIEWS CAROUSEL — mobile only
+   Desktop keeps the 3-up grid untouched; phones get a
+   swipeable, scroll-snapping carousel with a peeking next card.
+   ============================================================ */
+@media (max-width: 640px) {
+  .reviews-grid {
+    display: flex;
+    grid-template-columns: none;
+    align-items: flex-start;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 18px;
+    margin: 0 -18px;
+    padding: 4px 18px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .reviews-grid > .review-card {
+    flex: 0 0 84%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+}
