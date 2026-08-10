@@ -12,28 +12,32 @@
 
   /* ---- sticky header shadow ---- */
   var header = document.getElementById('siteHeader');
-  var onScroll = function () {
-    if (window.scrollY > 10) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 10) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
   /* ---- mobile nav toggle ---- */
   var toggle = document.getElementById('navToggle');
   var mobileNav = document.getElementById('mobileNav');
-  var closeNav = function () {
-    toggle.setAttribute('aria-expanded', 'false');
-    mobileNav.hidden = true;
-  };
-  toggle.addEventListener('click', function () {
-    var open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    mobileNav.hidden = open;
-  });
-  mobileNav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeNav);
-  });
+  if (toggle && mobileNav) {
+    var closeNav = function () {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.hidden = true;
+    };
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.hidden = open;
+    });
+    mobileNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeNav);
+    });
+  }
 
   /* ---- scroll reveal ---- */
   var revealEls = document.querySelectorAll('.reveal');
@@ -75,8 +79,9 @@
   /* ============================================================
      LIGHTBOX
      ============================================================ */
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
   var lb = document.getElementById('lightbox');
+  if (lb) {
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
   var lbClose = document.getElementById('lbClose');
@@ -125,11 +130,13 @@
     else if (e.key === 'ArrowLeft') showShot(current - 1);
     else if (e.key === 'ArrowRight') showShot(current + 1);
   });
+  }
 
   /* ============================================================
      FORM VALIDATION
      ============================================================ */
   var form = document.getElementById('estimateForm');
+  if (form) {
   var success = document.getElementById('formSuccess');
   var errorBox = document.getElementById('formError');
 
@@ -210,4 +217,5 @@
       }
     });
   });
+  }
 })();
