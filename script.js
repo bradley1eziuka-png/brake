@@ -81,7 +81,7 @@
      ============================================================ */
   var lb = document.getElementById('lightbox');
   if (lb) {
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot, .g-item'));
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
   var lbClose = document.getElementById('lbClose');

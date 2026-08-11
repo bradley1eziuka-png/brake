@@ -1,8 +1,9 @@
 # OS
 .DS_Store
 
-# Working files — not part of the deployable site
+# Working files (not part of the deployable site)
 temporary screenshots/
+_gallery_src/
 CLAUDE.md
 Frontend design skill.md
 Agent-Skills-for-Context-Engineering-main/
