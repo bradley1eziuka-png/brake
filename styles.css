@@ -941,22 +941,32 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
 
 /* ============================================================
    WHY BRAKE MOBILE CAROUSEL (homepage #why section only)
-   JS wraps #why .why-grid into a viewport/track at <=640px and
-   auto-advances it. Desktop grid (and other pages' why-grid-3
-   sections) are untouched; this block only affects the classes
-   the JS adds at runtime.
+   Same swipeable, peeking-next-card pattern as the reviews
+   carousel, so it's obvious there's more than one card. A JS
+   timer layers a gentle auto-advance on top via scrollTo, using
+   the same scroll position as manual swipes (no fighting).
+   Scoped with the #why id so it never touches the why-grid-3
+   sections on other pages, and only applies at <=640px, so
+   desktop is untouched.
    ============================================================ */
-.why-carousel-viewport {
-  overflow: hidden;
-  border-radius: var(--r);
-}
-.why-carousel-track.why-grid {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0;
-  transition: transform .6s cubic-bezier(.4, 0, .2, 1);
-  will-change: transform;
-}
-@media (prefers-reduced-motion: reduce) {
-  .why-carousel-track.why-grid { transition: none; }
+@media (max-width: 640px) {
+  #why .why-grid {
+    display: flex;
+    grid-template-columns: none;
+    align-items: stretch;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 18px;
+    margin: 0 -18px;
+    padding: 4px 18px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #why .why-grid::-webkit-scrollbar { display: none; }
+  #why .why-grid > .why-card {
+    flex: 0 0 84%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
 }
