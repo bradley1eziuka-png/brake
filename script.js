@@ -218,4 +218,75 @@
     });
   });
   }
+
+  /* ============================================================
+     WHY BRAKE MOBILE CAROUSEL (homepage only)
+     At <=640px, #why .why-grid becomes an auto-advancing sliding
+     carousel (one card at a time, ~2.5s per card). At wider
+     widths it is unwrapped back to the normal static grid, so
+     desktop is never touched.
+     ============================================================ */
+  var whySection = document.getElementById('why');
+  if (whySection) {
+    var whyTrack = whySection.querySelector('.why-grid');
+    if (whyTrack) {
+      var whySlides = Array.prototype.slice.call(whyTrack.children);
+      var whyCount = whySlides.length;
+      var whyMq = window.matchMedia('(max-width: 640px)');
+      var whyViewport = null;
+      var whyTimer = null;
+      var whyIndex = 0;
+
+      var whyGoTo = function (i) {
+        whyIndex = (i + whyCount) % whyCount;
+        whyTrack.style.transform = 'translateX(-' + (whyIndex * (100 / whyCount)) + '%)';
+      };
+      var whyStart = function () {
+        if (whyTimer || whyCount < 2) return;
+        whyTimer = setInterval(function () { whyGoTo(whyIndex + 1); }, 2500);
+      };
+      var whyStop = function () {
+        if (whyTimer) { clearInterval(whyTimer); whyTimer = null; }
+      };
+      var whyEnable = function () {
+        if (whyViewport) { whyStart(); return; }
+        whyViewport = document.createElement('div');
+        whyViewport.className = 'why-carousel-viewport';
+        whyViewport.setAttribute('role', 'region');
+        whyViewport.setAttribute('aria-label', 'Why Brake highlights');
+        whyTrack.parentNode.insertBefore(whyViewport, whyTrack);
+        whyViewport.appendChild(whyTrack);
+        whyTrack.classList.add('why-carousel-track');
+        whyTrack.style.width = (whyCount * 100) + '%';
+        whySlides.forEach(function (li) {
+          li.style.flex = '0 0 ' + (100 / whyCount) + '%';
+          li.classList.add('in');
+        });
+        whyIndex = 0;
+        whyTrack.style.transform = 'translateX(0%)';
+        whyStart();
+      };
+      var whyDisable = function () {
+        whyStop();
+        if (!whyViewport) return;
+        whyTrack.classList.remove('why-carousel-track');
+        whyTrack.style.width = '';
+        whyTrack.style.transform = '';
+        whySlides.forEach(function (li) { li.style.flex = ''; });
+        whyViewport.parentNode.insertBefore(whyTrack, whyViewport);
+        whyViewport.parentNode.removeChild(whyViewport);
+        whyViewport = null;
+      };
+      var whySync = function (e) { if (e.matches) whyEnable(); else whyDisable(); };
+
+      if (whyMq.addEventListener) whyMq.addEventListener('change', whySync);
+      else if (whyMq.addListener) whyMq.addListener(whySync);
+
+      if (whyMq.matches) whyEnable();
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) whyStop(); else if (whyViewport) whyStart();
+      });
+    }
+  }
 })();
