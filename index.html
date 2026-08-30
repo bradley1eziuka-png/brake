@@ -348,17 +348,29 @@
             </article>
           </div>
 
-          <aside class="crew-review reveal" aria-label="Customer review">
-            <span class="stars stars-lg" aria-hidden="true">★★★★★</span>
-            <blockquote>
-              Great communication from the first visit. They gave me a detailed scope of work and professional contract documents, then worked around the weather to get it done. Antonio handled the wood siding repair and fixed the leaks in the house. The whole place looks fresh.
-            </blockquote>
-            <footer>
-              <strong>Mike O.</strong>
-              <span>Local Guide · 17 reviews</span>
-              <span class="review-tag">Exterior siding repair &amp; painting</span>
-            </footer>
-          </aside>
+          <div class="crew-reviews">
+            <aside class="crew-review reveal" aria-label="Customer review">
+              <span class="stars stars-lg" aria-hidden="true">★★★★★</span>
+              <blockquote>
+                Great communication from the first visit. They gave me a detailed scope of work and professional contract documents, then worked around the weather to get it done. Antonio handled the wood siding repair and fixed the leaks in the house. The whole place looks fresh.
+              </blockquote>
+              <footer>
+                <strong>Mike O.</strong>
+                <span>Local Guide · 17 reviews</span>
+                <span class="review-tag">Exterior siding repair &amp; painting</span>
+              </footer>
+            </aside>
+
+            <aside class="crew-review reveal" aria-label="Customer review">
+              <span class="stars stars-lg" aria-hidden="true">★★★★★</span>
+              <blockquote>
+                Jerry was great to work with to set up the job, and Antonio did a fantastic job on the install. The experience was great and they're highly recommended.
+              </blockquote>
+              <footer>
+                <strong>Christopher Wolfs</strong>
+              </footer>
+            </aside>
+          </div>
         </div>
       </div>
     </section>
@@ -376,34 +388,61 @@
           </div>
         </div>
 
-        <div class="reviews-grid">
-          <article class="review-card reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <p>First time hiring painters and I was nervous, but Jerry walked me through picking colors and put me at ease. The carpenter and the painting crew did beautiful work in our main areas, kitchen, and office, and the new wainscoting looks great.</p>
-            <footer>
-              <strong>Julie S.</strong>
-              <span class="review-tag">Interior painting &amp; wainscoting</span>
-            </footer>
-          </article>
+        <div class="reviews-carousel">
+          <button class="rc-nav rc-prev" id="reviewsPrev" type="button" aria-label="Previous review">&#8249;</button>
+          <div class="reviews-grid" id="reviewsGrid">
+            <article class="review-card reveal">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <p>First time hiring painters and I was nervous, but Jerry walked me through picking colors and put me at ease. The carpenter and the painting crew did beautiful work in our main areas, kitchen, and office, and the new wainscoting looks great.</p>
+              <footer>
+                <strong>Julie S.</strong>
+                <span class="review-tag">Interior painting &amp; wainscoting</span>
+              </footer>
+            </article>
 
-          <article class="review-card reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <p>Second time using Brake. The first job transformed our whole interior, quick and efficient. This time they finished our patio overhang and it looks awesome. Easy call to hire them again.</p>
-            <footer>
-              <strong>Chandler P.</strong>
-              <span class="review-tag">Repeat customer · Interior &amp; patio</span>
-            </footer>
-          </article>
+            <article class="review-card reveal">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <p>Second time using Brake. The first job transformed our whole interior, quick and efficient. This time they finished our patio overhang and it looks awesome. Easy call to hire them again.</p>
+              <footer>
+                <strong>Chandler P.</strong>
+                <span class="review-tag">Repeat customer · Interior &amp; patio</span>
+              </footer>
+            </article>
 
-          <article class="review-card review-card-feature reveal">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <p>Once we picked our colors, we were shown a picture of what our house would look like with them. The work was started and finished on time, and they left no mess whatsoever. Everyone we interacted with was super friendly and professional. It looked exactly like we wanted it to. I would recommend them to anyone, we're so happy!</p>
-            <footer>
-              <strong>Meredith Mannino</strong>
-              <span class="review-tag">Exterior painting</span>
-            </footer>
-          </article>
+            <article class="review-card review-card-feature reveal">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <p>Once we picked our colors, we were shown a picture of what our house would look like with them. The work was started and finished on time, and they left no mess whatsoever. Everyone we interacted with was super friendly and professional. It looked exactly like we wanted it to. I would recommend them to anyone, we're so happy!</p>
+              <footer>
+                <strong>Meredith Mannino</strong>
+                <span class="review-tag">Exterior painting</span>
+              </footer>
+            </article>
+
+            <article class="review-card reveal">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <p>I highly recommend Jerry and his team. Very reliable and professional. Jerry, Austin, Eli, Elijah, and Miguel showed up at 7:45 with a game plan to finish my exterior painting job in one day and got it done. They Transformed my home in just one days time and man does it look good! I'm extremely satisfied, definitely will be using them again without a doubt!</p>
+              <footer>
+                <strong>Zeyad Hannonn</strong>
+                <span class="review-tag">Exterior painting</span>
+              </footer>
+            </article>
+
+            <article class="review-card reveal">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <p>Great customer service, attention to detail, and overall satisfied with the job they have done for me. Complete basement makeover I am now proud to do laundry in the man cave.</p>
+              <footer>
+                <strong>Ryan Malone</strong>
+                <span class="review-tag">Basement remodel</span>
+              </footer>
+            </article>
+          </div>
+          <button class="rc-nav rc-next" id="reviewsNext" type="button" aria-label="Next review">&#8250;</button>
         </div>
+
+        <p class="reviews-more">
+          <!-- TODO(client): replace # with Jerry's Google review share link (g.page/r/...) -->
+          <a href="#reviews-link">See all reviews on Google &rarr;</a>
+        </p>
       </div>
     </section>
 

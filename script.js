@@ -275,4 +275,26 @@
       });
     }
   }
+
+  /* ============================================================
+     REVIEWS CAROUSEL NAV (homepage only)
+     Prev/next arrows scroll the reviews-grid by one card width.
+     Native scroll-snap already makes it swipeable on touch and
+     trackpad; these buttons cover mouse-only desktop users.
+     ============================================================ */
+  var reviewsGrid = document.getElementById('reviewsGrid');
+  var reviewsPrev = document.getElementById('reviewsPrev');
+  var reviewsNext = document.getElementById('reviewsNext');
+  if (reviewsGrid && (reviewsPrev || reviewsNext)) {
+    var reviewsScrollBy = function (dir) {
+      var card = reviewsGrid.querySelector('.review-card');
+      if (!card) return;
+      var gridStyles = getComputedStyle(reviewsGrid);
+      var gap = parseFloat(gridStyles.columnGap || gridStyles.gap) || 0;
+      var step = card.getBoundingClientRect().width + gap;
+      reviewsGrid.scrollBy({ left: dir * step, behavior: 'smooth' });
+    };
+    if (reviewsPrev) reviewsPrev.addEventListener('click', function () { reviewsScrollBy(-1); });
+    if (reviewsNext) reviewsNext.addEventListener('click', function () { reviewsScrollBy(1); });
+  }
 })();
