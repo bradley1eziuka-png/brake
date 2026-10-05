@@ -131,9 +131,8 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
 .btn-primary {
   background: var(--orange);
   color: #fff;
-  box-shadow: var(--sh-orange);
 }
-.btn-primary:hover { background: var(--orange-600); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(242,101,34,.42); }
+.btn-primary:hover { background: var(--orange-600); transform: translateY(-2px); }
 
 .btn-ghost {
   background: rgba(255,255,255,.06);
@@ -531,7 +530,7 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
   z-index: 5; cursor: pointer;
   transition: background .18s var(--ease), color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
 }
-.rc-nav:hover { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: var(--sh-orange); }
+.rc-nav:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
 .rc-nav:active { transform: translateY(-50%) scale(.94); }
 .rc-prev { left: -23px; }
 .rc-next { right: -23px; }
