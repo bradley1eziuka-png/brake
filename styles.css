@@ -999,3 +999,24 @@ h1, .section-head h2, .commercial-copy h2, .contact-intro h2, .hero-badge, .rati
     scroll-snap-align: start;
   }
 }
+
+/* ---------- FAQ (service pages) ---------- */
+.faq { max-width: 720px; margin: 0 auto; display: grid; gap: 12px; }
+.faq details { background: #fff; border: 1px solid var(--line-strong); border-radius: var(--r); box-shadow: var(--sh-sm); }
+.faq summary { cursor: pointer; padding: 18px 22px; font-weight: 800; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--orange); flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; border-radius: var(--r); }
+.faq p { padding: 0 22px 20px; color: var(--body); line-height: 1.7; }
+.faq a.inline-link { color: var(--orange); font-weight: 800; }
+.hero-sub a.inline-link { color: #fff; text-decoration: underline; font-weight: 800; }
+
+/* ---------- service-page testimonials ---------- */
+.svc-quotes { max-width: 940px; margin: 0 auto; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.svc-quote { background: #fff; border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 28px 26px; box-shadow: var(--sh-sm); margin: 0; }
+.svc-quote .stars { color: var(--gold); display: block; margin-bottom: 10px; letter-spacing: .08em; }
+.svc-quote p { color: var(--body); line-height: 1.7; margin-bottom: 16px; }
+.svc-quote footer { display: flex; flex-direction: column; gap: 2px; }
+.svc-quote footer strong { color: var(--navy); }
+.svc-quote footer span { color: var(--muted); font-size: .88rem; font-weight: 700; }
